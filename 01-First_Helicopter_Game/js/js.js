@@ -175,7 +175,6 @@ function start() {
         }
 
         if (colisao4.length > 0) {
-
             inimigo2X = parseInt($("#inimigo2").css("left"));
             inimigo2Y = parseInt($("#inimigo2").css("top"));
             $("#inimigo2").remove();
@@ -184,17 +183,22 @@ function start() {
             $("#disparo").css("left", 950);
 
             reposicionaInimigo2();
-
         }
 
-
         if (colisao5.length > 0) {
-
             reposicionaAmigo();
             $("#amigo").remove();
         }
 
+        if (colisao6.length > 0) {
+            amigoX = parseInt($("#amigo").css("left"));
+            amigoY = parseInt($("#amigo").css("top"));
+            explosao3(amigoX, amigoY);
+            $("#amigo").remove();
 
+            reposicionaAmigo();
+
+        }
     }
 
     function explosao1(inimigo1X, inimigo1Y) {
@@ -232,8 +236,6 @@ function start() {
             tempoExplosao2 = null;
 
         }
-
-
     }
 
     function reposicionaInimigo2() {
@@ -265,6 +267,19 @@ function start() {
 
             }
 
+        }
+    }
+
+    function explosao3(amigoX, amigoY) {
+        $("#fundoGame").append("<div id='explosao3' class='anima4'></div");
+        $("#explosao3").css("top", amigoY);
+        $("#explosao3").css("left", amigoX);
+
+        var tempoExplosao3 = window.setInterval(resetaExplosao3, 1000);
+        function resetaExplosao3() {
+            $("#explosao3").remove();
+            window.clearInterval(tempoExplosao3);
+            tempoExplosao3 = null;
         }
     }
 }
