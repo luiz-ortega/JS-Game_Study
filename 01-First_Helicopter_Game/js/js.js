@@ -175,6 +175,7 @@ function start() {
         }
 
         if (colisao3.length > 0) {
+            velocidade = velocidade + 0.5;
             pontos = pontos + 100;
             inimigo1X = parseInt($("#inimigo1").css("left"));
             inimigo1Y = parseInt($("#inimigo1").css("top"));
@@ -234,7 +235,6 @@ function start() {
     }
 
     function explosao2(inimigo2X, inimigo2Y) {
-
         $("#fundoGame").append("<div id='explosao2'></div");
         $("#explosao2").css("background-image", "url(imgs/explosao.png)");
         var div2 = $("#explosao2");
