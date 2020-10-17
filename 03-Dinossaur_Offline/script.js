@@ -1,16 +1,22 @@
 let jumpInterval = 20;
 let jumpHeight = 20;
 
+let isJumping = false;
+
 const dino = document.querySelector(".dino");
 
 function handleKeyUp(event) {
   if (event.keyCode === 32) {
-    jump();
+    if (!isJumping) {
+      jump();
+    }
   }
 }
 
 function jump() {
   let position = 0;
+
+  isJumping = true;
 
   let upInterval = setInterval(() => {
     if (position >= 150) {
@@ -19,6 +25,7 @@ function jump() {
       let downInterval = setInterval(() => {
         if (position <= 0) {
           clearInterval(downInterval);
+          isJumping = false;
         } else {
           position -= jumpHeight;
           dino.style.bottom = position + "px";
