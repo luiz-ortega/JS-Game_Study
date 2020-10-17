@@ -5,6 +5,7 @@ let jumpLimit = 150;
 let isJumping = false;
 
 const dino = document.querySelector(".dino");
+const background = document.querySelector(".background");
 
 function handleKeyUp(event) {
   if (event.keyCode === 32) {
@@ -39,4 +40,14 @@ function jump() {
   }, jumpInterval);
 }
 
+function createCactus() {
+  const cactus = document.createElement("div");
+  let cactusPosition = 1000;
+
+  cactus.classList.add("cactus");
+  cactus.style.left = 1000 + "px";
+  background.appendChild(cactus);
+}
+
+createCactus();
 document.addEventListener("keyup", handleKeyUp);
