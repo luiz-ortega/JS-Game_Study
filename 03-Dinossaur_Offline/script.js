@@ -1,5 +1,6 @@
 let jumpInterval = 20;
 let jumpHeight = 20;
+let jumpLimit = 150;
 
 let isJumping = false;
 
@@ -19,7 +20,7 @@ function jump() {
   isJumping = true;
 
   let upInterval = setInterval(() => {
-    if (position >= 150) {
+    if (position >= jumpLimit) {
       clearInterval(upInterval);
 
       let downInterval = setInterval(() => {
