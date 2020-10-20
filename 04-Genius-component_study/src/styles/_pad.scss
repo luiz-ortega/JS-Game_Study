@@ -1,0 +1,20 @@
+.pad {
+  height: 50%;
+  width: 50%;
+
+  &-1 {
+    background-color: $green;
+  }
+
+  &-2 {
+    background-color: $pink;
+  }
+
+  &-3 {
+    background-color: &yellow;
+  }
+
+  &-4 {
+    background-color: $blue;
+  }
+}
